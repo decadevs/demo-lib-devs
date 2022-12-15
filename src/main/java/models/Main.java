@@ -29,7 +29,7 @@ public class Main {
         System.out.println();
 
         //add new book to the library
-        System.out.println(libraryServices.addBooks(newBooks, book1, 10));
+        System.out.println(libraryServices.addBooks(newBooks, book2, 10));
         System.out.println();
         System.out.println("------------------------------------------------------------------------");
 
@@ -45,7 +45,7 @@ public class Main {
         User user1 = new User("Janet", "ust/149", TypeOfUser.SENIOR_STUDENT, "Mathematics");
         User user2 = new User("Joyce", "ust/119", TypeOfUser.JUNIOR_STUDENT, "Mathematics");
         User user3 = new User("Mary", "ust/120", TypeOfUser.TEACHER, "Mathematics");
-        User user4 = new User("John", "ust/159", TypeOfUser.SENIOR_STUDENT, "Mathematics");
+        User user4 = new User("John", "ust/159", TypeOfUser.JUNIOR_STUDENT, "Mathematics");
         User user5 = new User("John", "ust/169", TypeOfUser.TEACHER, "Mathematics");
 
 
@@ -56,28 +56,15 @@ public class Main {
         libraryPriorityQueue.add(user3);
         libraryPriorityQueue.add(user4);
         libraryPriorityQueue.add(user5);
-        System.out.println("Displaying the order of priority to get books from the library: ");
-        System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
-        System.out.println();
-        System.out.println("------------------------------------------------------------------------");
-        System.out.println(libraryPriorityQueue);
-        System.out.println("the first on the priority queue is: \n" + libraryPriorityQueue.poll());
-        System.out.println("the second on the priority queue is: \n" + libraryPriorityQueue.poll());
-
+//
 //       // Normal queue
         Queue<User> libraryNormalQueue = Library.getUserFIFOQueue();
         libraryNormalQueue.add(user1);
         libraryNormalQueue.add(user2);
         libraryNormalQueue.add(user3);
-        System.out.println("Displaying those on the FIFO Queue:");
-          System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
-          System.out.println();
-          System.out.println("------------------------------------------------------------------------");
-        System.out.println(libraryNormalQueue);
-        System.out.println("the first person on the FIFO queue is: \n" + libraryNormalQueue.poll());
-
-        libraryServices.giveBookToUser(libraryPriorityQueue);
-        libraryServices.giveBookToUser(libraryNormalQueue);
+//
+        libraryServices.giveBookToUserBasedOnFIFO(libraryPriorityQueue);
+        libraryServices.giveBookToUserBasedOnFIFO(libraryNormalQueue);
 
     }
 }

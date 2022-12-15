@@ -66,16 +66,16 @@ public class User {
         return String.format("%-20s%-20s%-20s%-20s\n", this.getUserID(), this.getName(), this.getTypeOfUser(), this.getBookName());
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return getName().equals(user.getName()) && getUserID().equals(user.getUserID()) && getTypeOfUser() == user.getTypeOfUser() && getBookName().equals(user.getBookName());
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        User user = (User) o;
+//        return getName().equals(user.getName()) && getUserID().equals(user.getUserID()) && getTypeOfUser() == user.getTypeOfUser() && getBookName().equals(user.getBookName());
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getUserID(), getTypeOfUser(), getBookName());
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getName(), getUserID(), getTypeOfUser(), getBookName());
+//    }
 }

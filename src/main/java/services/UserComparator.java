@@ -10,8 +10,9 @@ public class UserComparator implements Comparator <User> {
                 && (user2.getTypeOfUser().equals(TypeOfUser.SENIOR_STUDENT))
                 || (user2.getTypeOfUser().equals(TypeOfUser.JUNIOR_STUDENT)))
             return -1;
-        else if (user2.getTypeOfUser().equals(TypeOfUser.JUNIOR_STUDENT)
-                && (user2.getTypeOfUser().equals(TypeOfUser.SENIOR_STUDENT)))
+        else if ((user2.getTypeOfUser().equals(TypeOfUser.SENIOR_STUDENT))
+                || (user2.getTypeOfUser().equals(TypeOfUser.JUNIOR_STUDENT))
+                && ((user1.getTypeOfUser().equals(TypeOfUser.TEACHER))))
             return 1;
         else return 0;
 }

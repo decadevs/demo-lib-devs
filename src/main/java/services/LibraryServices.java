@@ -8,7 +8,8 @@ import java.util.Queue;
 
 public interface LibraryServices {
     public String addBooks(HashMap<Book, Integer> booksList, Book book, Integer noOfCopies);
-    public String giveBookToUser(Queue<User> userPriorityQueue);
+    public String giveBookToUserBasedOnPriority(Queue<User> userPriorityQueue);
+    public String giveBookToUserBasedOnFIFO(Queue<User> userFIFOQueue);
     public String displayAllBooks(HashMap<Book, Integer> booksAvailable);
     public String checkAvailability(HashMap<Book, Integer> booksAvailable, Book book);
 }

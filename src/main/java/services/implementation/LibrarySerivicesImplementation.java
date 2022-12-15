@@ -1,5 +1,6 @@
 package services.implementation;
 import models.Book;
+import models.Library;
 import models.User;
 import services.LibraryServices;
 import services.UserComparator;
@@ -22,14 +23,28 @@ public class LibrarySerivicesImplementation implements LibraryServices {
     }
 
     @Override
-    public String giveBookToUser(Queue<User> userPriorityQueue) {
-         userPriorityQueue = new PriorityQueue<>(new UserComparator());
-         while(!userPriorityQueue.isEmpty()){
-             System.out.println("Displaying the order of priority to get books from the library: \n" + userPriorityQueue);
-             System.out.println("the first on the priority queue is: " + userPriorityQueue.poll());
-             System.out.println("the second on the priority queue is: " + userPriorityQueue.poll());
-         }
-            return "User has collected a book";
+    public String giveBookToUserBasedOnPriority(Queue<User> userPriorityQueue) {
+        //use ava
+        userPriorityQueue = Library.getUserPriorityQueue();
+        System.out.println("Displaying the order of priority to get books from the library: ");
+        System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(userPriorityQueue);
+        System.out.println("the second on the priority queue is: \n" + userPriorityQueue.poll());
+            return "User has collected a book based on priority";
+    }
+
+    @Override
+    public String giveBookToUserBasedOnFIFO(Queue<User> userFIFOQueue) {
+        userFIFOQueue = Library.getUserFIFOQueue();
+        System.out.println("Displaying the order of first come first serve to get books from the library: ");
+        System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(userFIFOQueue);
+        System.out.println("the second on the priority queue is: \n" + userFIFOQueue.poll());
+        return "User has collected a book based on first come first serve";
     }
 
     @Override
