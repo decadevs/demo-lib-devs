@@ -1,6 +1,5 @@
 package models;
 import Enums.TypeOfUser;
-import services.UserComparator;
 import services.implementation.LibrarySerivicesImplementation;
 import java.util.*;
 
@@ -9,10 +8,10 @@ public class Main {
         LibrarySerivicesImplementation libraryServices = new LibrarySerivicesImplementation();
 
         HashMap <Book, Integer> newBooks = new HashMap<>();
-        Book book1 = new Book("Bk/101e", "English","James Brook");
-        newBooks.put(book1, 5);
+        Book book1 = new Book("Bk/101e", "Mathematics","James Brook");
+        newBooks.put(book1, 10);
         newBooks.put(new Book("Bk/101e", "English","James Bond"), 20);
-        newBooks.put(new Book("Bk/111m", "Mathematics","Philips Celestine"), 10);
+        newBooks.put(new Book("Bk/111m", "Civil","Philips Celestine"), 10);
         newBooks.put(new Book("Bk/121p", "Physics","Crane Hike"), 10);
         newBooks.put(new Book("Bk/131l", "Literature","Light Wright"), 15);
         newBooks.put(new Book("Bk/141g", "Geograghy","Emeke Uchenna"), 10);
@@ -61,10 +60,10 @@ public class Main {
         Queue<User> libraryNormalQueue = Library.getUserFIFOQueue();
         libraryNormalQueue.add(user1);
         libraryNormalQueue.add(user2);
-        libraryNormalQueue.add(user3);
+        libraryNormalQueue.add(user4);
 //
-        libraryServices.giveBookToUserBasedOnFIFO(libraryPriorityQueue);
-        libraryServices.giveBookToUserBasedOnFIFO(libraryNormalQueue);
+        libraryServices.giveBookToUserBasedOnPriority(libraryPriorityQueue, Library.getLibraryBooks(), book1);
+        libraryServices.giveBookToUserBasedOnFIFO(libraryNormalQueue, Library.getLibraryBooks(), book1);
 
     }
 }

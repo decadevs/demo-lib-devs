@@ -26,7 +26,7 @@ class LibrarySerivicesImplementationTest {
         libraryServices = new LibrarySerivicesImplementation();
         newBooks = new HashMap<>();
         book1 = new Book("Bk/101e", "English","James Brook");
-        newBooks.put(book1, 5);
+        newBooks.put(book1, 10);
         newBooks.put(new Book("Bk/101e", "English","James Bond"), 20);
         newBooks.put(new Book("Bk/111m", "Mathematics","Philips Celestine"), 10);
         newBooks.put(new Book("Bk/121p", "Physics","Crane Hike"), 10);
@@ -67,13 +67,13 @@ class LibrarySerivicesImplementationTest {
     @Test
     void giveBookToUserBasedOnPriority() {
         String expected = "User has collected a book based on priority";
-        assertEquals(expected, libraryServices.giveBookToUserBasedOnPriority(libraryPriorityQueue));
+        assertEquals(expected, libraryServices.giveBookToUserBasedOnPriority(libraryPriorityQueue, newBooks, book1));
     }
 
     @Test
     void giveBookToUserBasedOnFIFO() {
         String expected = "User has collected a book based on first come first serve";
-        assertEquals(expected, libraryServices.giveBookToUserBasedOnFIFO(libraryNormalQueue));
+        assertEquals(expected, libraryServices.giveBookToUserBasedOnFIFO(libraryNormalQueue, newBooks, book1));
     }
     @Test
     void displayAllBooks() {

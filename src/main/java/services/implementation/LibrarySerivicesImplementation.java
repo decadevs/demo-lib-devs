@@ -23,27 +23,37 @@ public class LibrarySerivicesImplementation implements LibraryServices {
     }
 
     @Override
-    public String giveBookToUserBasedOnPriority(Queue<User> userPriorityQueue) {
+    public String giveBookToUserBasedOnPriority(Queue<User> userPriorityQueue, HashMap<Book, Integer> booksList, Book book) {
         //use ava
+        booksList = Library.getLibraryBooks();
         userPriorityQueue = Library.getUserPriorityQueue();
         System.out.println("Displaying the order of priority to get books from the library: ");
         System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
         System.out.println();
         System.out.println("------------------------------------------------------------------------");
         System.out.println(userPriorityQueue);
-        System.out.println("the second on the priority queue is: \n" + userPriorityQueue.poll());
+        System.out.println("the first on the priority queue is: \n" + userPriorityQueue.poll());
+        int noOfBooks = booksList.get(book);
+        noOfBooks = noOfBooks - 1;
+        booksList.put(book, noOfBooks);
+        System.out.println("Copies of this book left in the library: " + noOfBooks);
             return "User has collected a book based on priority";
     }
 
     @Override
-    public String giveBookToUserBasedOnFIFO(Queue<User> userFIFOQueue) {
+    public String giveBookToUserBasedOnFIFO(Queue<User> userFIFOQueue, HashMap<Book, Integer> booksList, Book book) {
+        booksList = Library.getLibraryBooks();
         userFIFOQueue = Library.getUserFIFOQueue();
         System.out.println("Displaying the order of first come first serve to get books from the library: ");
         System.out.printf("%-20s%-20s%-20s%-20s","USER_ID", "USER_NAME","TYPE_OF_USER", "BOOK_REQUESTING");
         System.out.println();
         System.out.println("------------------------------------------------------------------------");
         System.out.println(userFIFOQueue);
-        System.out.println("the second on the priority queue is: \n" + userFIFOQueue.poll());
+        System.out.println("the first on the priority queue is: \n" + userFIFOQueue.poll());
+        int noOfBooks = booksList.get(book);
+        noOfBooks = noOfBooks - 1;
+        booksList.put(book, noOfBooks);
+        System.out.println("Copies of this book left in the library: " + noOfBooks);
         return "User has collected a book based on first come first serve";
     }
 
